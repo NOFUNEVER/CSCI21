@@ -1,9 +1,9 @@
 /*
  * Name        : dl_list header
- * Author      : Jason
+ * Author      : Jason K Lamphere
  * Description : This is the header file for our linked list file.
  * This will include our dl_node files.
- * Sources     : 
+ * Sources ide.c9.io/nofunever/csci21,  github.com/NOFUNEVER/CSCI21
  */
 
 #ifndef DL_LIST_H

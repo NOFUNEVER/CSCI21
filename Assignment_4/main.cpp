@@ -3,7 +3,7 @@
  * Author      : Jason K Lamphere
  * Description : the main file for our doubly linked list which will include
  * our dl_list header file.
- * Sources https://ide.c9.io/nofunever/csci21
+ * Sources https://ide.c9.io/nofunever/csci21 github.com/nofunever/csci21
  */
 
  
@@ -16,7 +16,7 @@
 using namespace std;
 
 
-bool is_number(const std::string& s)
+bool is_number(const std::string& s) //checks to make sure its a name before adding to list
 {
     std::string::const_iterator it = s.begin();
     while (it != s.end() && std::isdigit(*it)) ++it;
@@ -25,7 +25,7 @@ bool is_number(const std::string& s)
 
 
 
-int main (int argc, const char* argv[]){
+int main (int argc, const char* argv[]){ // accepts arguement from command line to open a file
 
 DLNode node;
     DLList list;
@@ -37,6 +37,10 @@ DLNode node;
     int count = 0;
     int temp = 0;
     string temphead="";
+
+    cout << "It's Time for Musical Chairs!"<<endl; 
+    cout << "Who will be eliminated first?"<<endl <<endl;
+    
    
     instream.open(argv[1]);  //opens file stream from console argument
     if(instream.fail()){     //if it fails it tells you 
@@ -44,12 +48,12 @@ DLNode node;
         return 0;
     }
     
-    while(instream >> next){
+    while(instream >> next){ //while its reading in from the file it will put the line into next and count
       count++;
       
         if(!is_number(next) && count < 2){
               
-           list.PushFront(next);   
+           list.PushFront(next);   // pushes line to front and returns it to be viewed the first time
            cout << list.GetFront()<<endl;
         }
     
@@ -66,36 +70,25 @@ DLNode node;
           instream.close();
           instream.open("a3input.txt");
           
-           while(instream >> next){
+           while(instream >> next){   //if it is a number 
                 if(is_number(next)){
-                  next2 = atoi(next.c_str());
-                  temp = next2%list.GetSize()-1;
+                  next2 = atoi(next.c_str());//dumpsd  numerical value stored in string into an int varialbe
+                  temp = next2%list.GetSize()-1; //figures out eliminated player using modulo
                      
-                cout<<"Player "<<temp+1<<": "<<list.Traverse(temp)<<" lost the round." <<endl<<endl;
-                list.RemoveFirst(list.Traverse(temp)); 
+                cout<<"Player "<<temp+1<<": "<<list.Traverse(temp)<<" lost the round and has been eliminated." <<endl<<endl;//traverses to the proper player 
+                list.RemoveFirst(list.Traverse(temp)); //removes and reaaranges our list.
                 temphead = list.Traverse(temp);
                 list.RemoveFirst(list.Traverse(temp)); 
                  list.PushFront(temphead);
                 
-                
                 cout<<list<< endl;
-                
-          
-          
          
           }
-          
-          
-        
-        
-            
-           
-              
-          }
+        }
         
           return 0;
               
-          }
+   }
         
       
   

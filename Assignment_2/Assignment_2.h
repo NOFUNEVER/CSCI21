@@ -1,4 +1,4 @@
-/*
+gi/*
  * Name        : Assignment_2.h
  * Author      : Jason K Lamphere
  * Description : Assignment2 

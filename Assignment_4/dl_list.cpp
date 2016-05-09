@@ -11,11 +11,11 @@
 
 using namespace std;
 
-int DLList::GetSize() const {
+int DLList::GetSize() const {  //returns the size of our linked list
  return size_;
 }
 
-void DLList::PushFront(string add_to) {
+void DLList::PushFront(string add_to) {   //creates a node and pushes it to the front of the program
   DLNode* new_node = new DLNode(add_to);
   if (head_ == NULL) {
     tail_ = new_node;  
@@ -39,18 +39,16 @@ void DLList::PushBack(string add_to) {
   }
 }
 
-void DLList::insert(string newContents)
-{
-            //: create new DLNode with newContents and insert in ascending (based on newContents) order
+void DLList::insert(string newContents){    //: create new DLNode with newContents and insert in ascending (based on newContents) order
+           
   DLNode* insert = new DLNode(newContents); //assigns data to new node 
   DLNode* current = head_; //assigns head to current
   DLNode* prev = current;
-  if(!head_ || newContents <= current->GetContents()) //if there is a list or data is less than or equal to head_                                                          
-  {
+  
+  if(!head_ || newContents <= current->GetContents()){ //if there is a list or data is less than or equal to head_  
     PushFront(newContents); 
   }
-  else if(newContents > tail_->GetContents()) //if data is greater than tail
-  {
+  else if(newContents > tail_->GetContents()){ //if data is greater than tail
     PushBack(newContents);
   }
   else
@@ -70,7 +68,7 @@ void DLList::insert(string newContents)
 
 
 
-string DLList::GetFront() const { 
+string DLList::GetFront() const { //returns contents of head
 if (head_ == NULL) {
   cerr << "List Empty";
   return "";
@@ -79,7 +77,7 @@ if (head_ == NULL) {
   }
 }
 
-string DLList::GetBack() const { 
+string DLList::GetBack() const { //returns contents of tail
 if (tail_ == NULL) {
   cerr << "List Empty";
   return "";
@@ -88,7 +86,7 @@ if (tail_ == NULL) {
   }
 }
 
-void DLList::PopFront() {
+void DLList::PopFront() {//removes the head from list
   if (size_ == 0) {
     cerr << "List Empty";
   } else {
@@ -102,7 +100,7 @@ void DLList::PopFront() {
   }
 }
 
-void DLList::PopBack() { 
+void DLList::PopBack() { //remove tail from list
   if (size_ == 0) {
     cerr << "List Empty";
   } else if (size_ == 1) {
@@ -119,7 +117,7 @@ void DLList::PopBack() {
   }
 }
 
-void DLList::RemoveFirst(string find) {
+void DLList::RemoveFirst(string find) {// traverses list and deletes first instance of target
   if (size_ == 0) {
   cerr << "Not Found";
   } else {
@@ -143,7 +141,7 @@ void DLList::RemoveFirst(string find) {
   }
 }
 
-void DLList::RemoveAll(string find) {
+void DLList::RemoveAll(string find) {//traverses list deleting all instances of target
   if (size_ == 0) {
   cerr << "Not Found";
   } else {
@@ -176,7 +174,7 @@ void DLList::RemoveAll(string find) {
 
 
 
-bool DLList::get(string target) {
+bool DLList::get(string target) { //traverses list until it finds the target
   if (size_ == 0) {
     return false;
   }
@@ -190,7 +188,7 @@ bool DLList::get(string target) {
   return true;
 }
 
-void DLList::Clear() {
+void DLList::Clear() {    //clears the list
   while (head_ != NULL) {
     DLNode *temp = head_;
     head_ = head_->GetNext();
@@ -201,7 +199,7 @@ void DLList::Clear() {
 
 
 
-string DLList::Traverse(int x){
+string DLList::Traverse(int x){ //travels from the head node x distance down the list
   DLNode* it = head_;
   int count = 0;
   while(x>count){
