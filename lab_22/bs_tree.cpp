@@ -1,8 +1,8 @@
 /*
  * Name        : Lab_24
- * Author      : Jason
+ * Author      : Jason K Lamphere
  * 
- * Sources     :
+ * Sources     :ide.c9.io/nofunever/csci21   github.com/nofunever/csci21
  */
 
 #include "bs_tree.h"

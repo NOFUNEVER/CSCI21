@@ -68,7 +68,7 @@ DLNode node;
           
           cout<<endl;
           instream.close();
-          instream.open("a3input.txt");
+          instream.open(argv[1]);
           
            while(instream >> next){   //if it is a number 
                 if(is_number(next)){
