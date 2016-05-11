@@ -1,8 +1,8 @@
 /*
  * Name        : BS_TREE header
- * Author      : Cory Joseph
+ * Author      : Jason K Lamphere
  * Description : creating a BST Node for a tree.
- * Sources     : 
+ * Sources     : ide.c9.io/nofunever/csci21   github.com/nofunever/csci21
  */
 
 #ifndef BS_TREE_H
