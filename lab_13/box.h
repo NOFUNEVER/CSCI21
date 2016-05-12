@@ -20,29 +20,29 @@ class Box{
 
 public:
    
-Box(){
+Box(){   //default constructor
     contents = 0;
 }
 
-Box(T newContents){
+Box(T newContents){ //overloaded constructor
     contents = newContents;
 }
 
-void setContents(T newContents){
+void setContents(T newContents){//mutator
     contents = newContents;
 }
 
 
-T getContents() const{
+T getContents() const{//accessor
     return contents;
 }
 
-friend ostream& operator <<(ostream& output, const Box<T> &newContents){
+friend ostream& operator <<(ostream& output, const Box<T> &newContents){//output
     output << newContents.contents;
     return output;
 }
 
-T Sum(T values, unsigned int size){
+T Sum(T values, unsigned int size){// sums values in array
     T sum = "zero";
     for( int i = 0; i < size; i++){
         sum+=values[i];
@@ -51,7 +51,7 @@ T Sum(T values, unsigned int size){
  }
 
 protected:
-  T contents; 
+  T contents; //protected templated variable
 };
 
 #endif
