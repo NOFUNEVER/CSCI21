@@ -1,40 +1,40 @@
 /*
- * Name        : Lab_24
- * Author      : Jason
- * 
- * Sources     :
+ * Name        : BS_TREE 
+ * Author      : Jason K Lamphere
+ * Description : creating a BST Node for a tree.
+ * Sources     : ide.c9.io/nofunever/csci21   github.com/nofunever/csci21
  */
 
 #include "bs_tree.h"
 
-bool BSTree::Insert(int value) {
+bool BSTree::Insert(int value) { //insert function for a tree
   return Insert(value, root_);
 }
 
-bool BSTree::Remove(int value) {
+bool BSTree::Remove(int value) { //remove function for our tree
   return Remove(value, root_);
 }
 
-int BSTree::FindMin() {
+int BSTree::FindMin() {       //finds the min value 
   if (root_ == NULL) {
     return 0;
   }
   return FindMin(root_);
 }
 
-void BSTree::Clear() {
+void BSTree::Clear() {   //clears node
   Clear(root_);
 }
 
-unsigned int BSTree::size() const {
+unsigned int BSTree::size() const {   //gets size without allowing it to change
   return size_;
 }
 
-string BSTree::InOrder() {
+string BSTree::InOrder() {  //lists tree nodes in order
   return InOrder(root_);
 }
 
-bool BSTree::Insert(int value, BSTNode*& root) {
+bool BSTree::Insert(int value, BSTNode*& root) {  //our actual insert function
     if (root == NULL) {
       root = new BSTNode(value);
       size_++;
@@ -47,7 +47,7 @@ bool BSTree::Insert(int value, BSTNode*& root) {
     return false;
 }
 
-bool BSTree::Remove(int value, BSTNode*& root) {
+bool BSTree::Remove(int value, BSTNode*& root) {  //our actual remove function
 if (root == NULL) {
   return false;
 } else if (root->contents() == value) {
@@ -78,14 +78,14 @@ if (root == NULL) {
 }
 }
 
-int BSTree::FindMin(BSTNode* root) const {
+int BSTree::FindMin(BSTNode* root) const {  //find min wihtout modifying
   if (root->left_child() != NULL) {
     return FindMin(root->left_child());
   }
   return root->contents();
 }
 
-void BSTree::Clear(BSTNode*& root) {
+void BSTree::Clear(BSTNode*& root) {  //full clear function
   if (root != NULL) {
     Clear(root->left_child());
     Clear(root->right_child());
@@ -95,7 +95,7 @@ void BSTree::Clear(BSTNode*& root) {
   }
 }
 
-string BSTree::InOrder(BSTNode* root) {
+string BSTree::InOrder(BSTNode* root) {  //lists tree inorder from root
 stringstream ss;
   if (root != NULL) {
     ss << InOrder(root->left_child());

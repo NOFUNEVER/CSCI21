@@ -4,9 +4,10 @@
  * Description : Unit test to test Lab #15 Functionality
  */
 #define CATCH_CONFIG_MAIN
+#include "sorting.h"
 #include "catch.hpp"
 
-#include "sorting.h"
+
 bool GRADER = false;
 
 TEST_CASE("Bubble Sort") {
@@ -241,27 +242,6 @@ TEST_CASE("Shell Sort") {
   }
 }
 
-TEST_CASE("2Algorithmic Test (For correct SWAPS, etc.)") {
-  int main[5] = { 9, 1, 5, 2, 7 };
-  GRADER = true;
-  SECTION("InsertionSort({9, 1, 5, 2, 7})") {
-    std::streambuf* old_cout = cout.rdbuf();
-    std::ostringstream your_swaps;
-    cout.rdbuf(your_swaps.rdbuf());
-    InsertionSort(main, 5);
-    cout.rdbuf(old_cout);
-    CHECK(your_swaps.str() == "1 9\n5 9\n2 9\n2 5\n7 9\n");
-  }
-
-  SECTION("ShellSort({9, 1, 5, 2, 7})") {
-    std::streambuf* old_cout = cout.rdbuf();
-    std::ostringstream your_swaps;
-    cout.rdbuf(your_swaps.rdbuf());
-    ShellSort(main, 5);
-    cout.rdbuf(old_cout);
-    CHECK(your_swaps.str() == "5 1 9 2 7 \n5 1 9 2 7 \n5 1 7 2 9 \n1 5 7 2 9 \n1 5 7 2 9 \n1 2 5 7 9 \n1 2 5 7 9 \n");
-  }
-}
 
 bool CompareArrays(int array_one[], int array_two[], unsigned int size) {
   for (unsigned int i = 0; i < size; i++)

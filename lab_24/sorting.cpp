@@ -1,13 +1,14 @@
 /*
  * Name        : sorting.cpp
- * Author      : FILL IN
+ * Author      : Jason Lamphere
  * Description : Working with Insertion and Shell Sort
+ * Sources     : ide.c9.io/nofunever/csci21   github.com/nofunever/csci21
  */
 #include "sorting.h"
 
 // CODE HERE -- FUNCTION DEFINITIONS
 
-void SwapValues(int &value_1, int &value_2) {
+void SwapValues(int &value_1, int &value_2) {  //swaps node values by ref
   // DO NOT ALTER THE NEXT 3 LINES!!!
   if (GRADER) {
     cout << value_1 << " " << value_2 << endl;
@@ -22,7 +23,7 @@ void SwapValues(int &value_1, int &value_2) {
 
 
 
-int InsertionSort(int the_array[], unsigned int size) {
+int InsertionSort(int the_array[], unsigned int size) {  // goes through list one at a time and moves contents to proper location
   int passes = 0;
   for (unsigned int i = 0; i <= (size - 1); i++) {
   passes++;
@@ -35,7 +36,7 @@ int InsertionSort(int the_array[], unsigned int size) {
   return passes;
 }
 
-int ShellSort(int the_array[], unsigned int size) {
+int ShellSort(int the_array[], unsigned int size) {   //insertion sort that an swap values farther apart making really unorganized lists be sorted faster
   int passes = 0;
   unsigned int gap = size / 2;
     while (gap > 0) {
@@ -55,11 +56,7 @@ int ShellSort(int the_array[], unsigned int size) {
   return passes;
 }
 
-
-
-
-
-int BubbleSort(int the_array[], unsigned int size){
+int BubbleSort(int the_array[], unsigned int size){  //inefficient bubble sort passes through list swapping values if they are in wrong order cycling through list till its complete
   
   int passes = 0;
   for (unsigned int i = (size - 1); i >= 1; i--) {
@@ -75,7 +72,7 @@ int BubbleSort(int the_array[], unsigned int size){
 }
 
 
-int OptimizedBubbleSort(int the_array[], unsigned int size){
+int OptimizedBubbleSort(int the_array[], unsigned int size){ //bubble sort that doesn't recheck previously sorted items
   int passes = 0;
   for (unsigned int i = (size - 1); i >= 1; i--) {
   bool swapped = false;
@@ -94,11 +91,8 @@ int OptimizedBubbleSort(int the_array[], unsigned int size){
 }
 
 
-int SelectionSort(int the_array[], unsigned int size){
-  
-  
-
-  unsigned int smallest = 0;
+int SelectionSort(int the_array[], unsigned int size){ //each passs moves the smallest unsorted element. 
+unsigned int smallest = 0;
 int passes = 0;
   for (unsigned int i = 0; i < size; i++) {
       passes++;

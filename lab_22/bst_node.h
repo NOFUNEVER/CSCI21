@@ -2,7 +2,7 @@
  * Name        : BST_NODE header
  * Author      : Jason Lamphere
  * Description : creating a BST Node for a tree.
- * Sources     : 
+ * Sources     : ide.c9.io/nofunever/csci21  github.com/nofunever/csci21
  */
 
 #ifndef BST_NODE_H

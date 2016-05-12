@@ -7,12 +7,11 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "bst_nodet.h"
 #include "bs_treet.h"
-using std::cout;
-using std::endl;
-using std::string;
-using std::stringstream;
+//using std::cout;
+//using std::endl;
+//using std::string;
+//using std::stringstream;
 
 // For testing (DO NOT ALTER)
 void Test(bool test, string more_info = "", string yours = "!", string actual =
@@ -102,6 +101,7 @@ void UnitTest() {
 
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
        tree.ToStringForwards(), actual);
+       /*
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
   Test(tree.Insert(50) == 1, "Insert(50)");
@@ -178,7 +178,7 @@ void UnitTest() {
   cout << string(temp.length() - 1, '-') << endl;
   cout << "Unit Test Complete!\n" << "Passed: " << ut_passed << " / "
        << ut_total << endl << "Failed: " << ut_failed << " / " << ut_total
-       << endl << endl;
+       << endl << endl;*/
 }
 
 // For testing (DO NOT ALTER)

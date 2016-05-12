@@ -5,49 +5,61 @@
  * https://github.com/NOFUNEVER/CSCI21 https://ide.c9.io/NOFUNEVER/CSCI21
  */
 
-#ifndef LAB_H
-#define LAB_H
+#ifndef BOX_H
+#define BOX_H
 
-#include <iostream>
-using std::ostringstream;
+#include <string>
+#include <ostream>
 using std::string;
+using std::ostream;
+using std::stringstream;
+using std::endl;
 
-template <class T> //decalre template param
-class Box { //declare class box
 
-  private:
-    T dat_t_; //sets param var to template type
-  
+template<class T>
+class Box{ 
+
   public:
-    Box(T newDat_t):dat_t_(newDat_t){ //constructor initializes dat_t_ to newDat_t
-    
-    }
-    
-    void setDat_t(T newDat_t){ //set function for dat_t_ to newDat_t
-    
-      dat_t_ = newDat_t;
-    }
-    
-    T getDat_t(){ //get function returns dat_t_
-    
-      return dat_t_;
-    }
-    
-    friend ostringstream+ operator <<(ostringstream+ out, Box<T> get){ //friend function with stringstream
-    
-      out << get.dat_t_; //puts dat_t_ into stream
-      return out;
-    }
-    
-    T Sum(T array[], int size){//template variable  used to provide sum of an array that can contain any data type
-    
-      T sum = T();
-      
-      for(int i = 0; i < size; i++){
-        sum += array[i];
-      }
-      return sum;
-    }
+   
+Box(){
+    contents = 0;
 }
+
+
+Box(T newContents){
+    contents = newContents;
+}
+
+
+void setContents(T newContents){
+    contents = newContents;
+}
+
+
+
+T getContents() const{
+    return contents;
+}
+
+
+friend ostream& operator <<(ostream& output, const Box<T> &newContents){
+    output << newContents.contents;
+    return output;
+}
+
+
+
+
+
+T Sum(T values, unsigned int size){
+    T sum = "zero";
+    for( int i = 0; i < size; i++){
+        sum+=values[i];
+    }
+ return sum;   
+}
+ protected:
+    T contents; 
+};
 
 #endif

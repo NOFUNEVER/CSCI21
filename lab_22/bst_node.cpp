@@ -1,8 +1,7 @@
 /*
  * Name        : Lab_23
  * Author      : Jason Lamphere
- *               Creating a node class for use in a binary  search tree. The nodes for a tree are a little different than those of a linked list.
- * 
+ * Description : Creating a node class for use in a binary  search tree. The nodes for a tree are a little different than those of a linked list. * 
  * Sources     : ide.c9.io/nofunever/csci21   github.com/nofunever/csci21
  */
 

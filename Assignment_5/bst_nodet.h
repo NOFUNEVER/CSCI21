@@ -1,89 +1,84 @@
 /*
- * Name        : bst_nodet header file
+ * Name        : BST_NODE header
  * Author      : Jason K Lamphere
- * Description : the header file where we will declare our nodes
- * for our tree
- * Sources     : 
+ * Description : creating a BST Node for a tree.
+ * Sources     : ide.c9.io/nofunever/csci21    github.com/nofunever/csci21
  */
 
-#ifndef BST_NODET_H
-#define BST_NODET_H
+#ifndef BST_NODE_H
+#define BST_NODE_H
 
-// Add any includes and using statements Here
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <cstdlib>
-#include "bs_treet.h"
 
-using namespace std;
-
-template <class T> 
+template <class T>
 class BSTNodeT {
-  public:
-  BSTNodeT()
-    : contents_(T()), right_child_(NULL), left_child_(NULL),
-	   count_(0)
+ public:
+  BSTNodeT(const T &contents = T())
+  : right_child_(NULL), left_child_(NULL),
+    contents_(contents)
   {}
 
-  BSTNodeT(T contents)
-    : contents_(contents), right_child_(NULL), left_child_(NULL),
-       count_(0)
-  {}
-  
-~BSTNodeT() {
-	right_child_ = NULL;
-	left_child_ = NULL;
+  ~BSTNodeT() {
+    right_child_ = NULL;
+    left_child_ = NULL;
 }
-    
-void SetContents(T contents) {
-    contents_ = contents;
-};
 
-void SetLeft(BSTNodeT* left_child) {
-  left_child_ = left_child;
-};
-    
-void SetRight(BSTNodeT* right_child) {
-  right_child_ = right_child;
-};
-    
+void SetContents(T contents) { // sets node contents
+  contents_ = contents;
+}
+
+T GetContents() const {      //gets node contents not allowing it to be changed
+ return contents_;
+}
+
+T& GetContents() {        //gets address of contets
+  return contents_;
+}
+
+void SetLeft(BSTNodeT<T>* SetLeft) { //sets child contents
+  left_child_ = SetLeft;
+}
+
+void SetRight(BSTNodeT<T>* SetRight) {
+  right_child_ = SetRight;
+}
+
+BSTNodeT<T>* GetLeft() const {  //get left child
+return left_child_;
+}
+
+BSTNodeT<T>*& GetLeft() {  //get left child 
+return left_child_;
+}
+
+BSTNodeT<T>* GetRight() const { //get right child
+return right_child_;
+}
+
+BSTNodeT<T>*& GetRight() { //get right child
+  return right_child_;
+}
+
 void IncrementCount() {
   count_++;
-};
+}
     
 void DecrementCount() {
   count_--;
-};
-    
-T GetContents() const {
-  return contents_;
-};
-    
-BSTNodeT*& GetLeft() {
-  return left_child_;
-};
-    
-BSTNodeT*& GetRight() {
-  return right_child_;
-};
-    
-unsigned int GetCount() {
-  return count_;
-};
-  
-  private:
+}
+
+ private:
     T contents_;
     unsigned int count_;
-	BSTNodeT* right_child_;
-    BSTNodeT* left_child_;
+	BSTNodeT<T>* right_child_;
+    BSTNodeT<T>* left_child_;
 };
 
 
-#endif /* BST_NODET_H */
-
-
-
+#endif /* BST_NODE_H */
 
 
 
