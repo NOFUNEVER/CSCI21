@@ -12,44 +12,35 @@
 #include <ostream>
 using std::string;
 using std::ostream;
-using std::stringstream;
-using std::endl;
+
 
 
 template<class T>
 class Box{ 
 
-  public:
+public:
    
 Box(){
     contents = 0;
 }
 
-
 Box(T newContents){
     contents = newContents;
 }
-
 
 void setContents(T newContents){
     contents = newContents;
 }
 
 
-
 T getContents() const{
     return contents;
 }
-
 
 friend ostream& operator <<(ostream& output, const Box<T> &newContents){
     output << newContents.contents;
     return output;
 }
-
-
-
-
 
 T Sum(T values, unsigned int size){
     T sum = "zero";
@@ -57,9 +48,10 @@ T Sum(T values, unsigned int size){
         sum+=values[i];
     }
  return sum;   
-}
- protected:
-    T contents; 
+ }
+
+protected:
+  T contents; 
 };
 
 #endif
