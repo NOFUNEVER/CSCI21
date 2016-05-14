@@ -24,8 +24,7 @@ using std::cin;
 
 
 
-class bnkAcct
-{
+class bnkAcct{
     public:
         bnkAcct(string f_name = "", string l_name = "", int pin = 0, double bal = 0); //constructor
         int getPin();      //accessor and mutators "setsgets" for our pin
@@ -44,8 +43,7 @@ class bnkAcct
 
 };
 
-class Checking : public bnkAcct //sub class checking
-{
+class Checking : public bnkAcct{ //sub class checking
     public:
         Checking(string f_name = "", string l_name = "", int pin = 0, double bal = 0, double deposit = 0, double withdraw = 0);
         double getChBal();  //gets and sets bal
@@ -62,8 +60,7 @@ class Checking : public bnkAcct //sub class checking
                 
 };
 
-class Savings : public bnkAcct //sub class savings
-{
+class Savings : public bnkAcct{ //sub class savings
   public:
     Savings(string f_name = "", string l_name = "", int pin = 0, double bal = 0, double deposit = 0, double withdraw = 0);
     double getSaBal(); //these funcion the same as checking but are new functions
@@ -80,8 +77,7 @@ class Savings : public bnkAcct //sub class savings
     double sa_withdraw_;
 };
 
-class Credit : public bnkAcct //sub class credit
-{
+class Credit : public bnkAcct{ //sub class credit
   public:
     Credit(string f_name = "", string l_name = "", int pin = 0, double bal = 2009.43, double interest = 0.23, int limit = 4000, double payment = 0);
     double getInterest(); //gets and sets interest rate

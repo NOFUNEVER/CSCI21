@@ -7,175 +7,159 @@
 
 #include "Box.h"
 #include "Prize.h"
+using std::cout;
+using cin;
+using std:endl;
 
 
 int main(){
-  Prize p;
-  Box b;
+  Prize prize;
+  Box box;
   std::string yn;
-  unsigned int integer;
-  unsigned int choice;
-  unsigned int choice2;  
+  unsigned int intg;
+  unsigned int decision;
+  unsigned int decision2;  
   
-  while(choice != 6){ //runs unntil user inputs to exit
-    std::cout<<"-Prize Box Menu-"<<std::endl; //main menu  
-    std::cout<<"1:Construct Your Box"<<std::endl;
-    std::cout<<"2:Add Prize, Get Prize, Remove Prize"<<std::endl;
-    std::cout<<"3:List Prize & Box Data"<<std::endl;
-    std::cout<<"4:Compare Prizes"<<std::endl;
-    std::cout<<"5:Reset(start over)"<<std::endl;
-    std::cout<<"6:Quit"<<std::endl;
-    std::cout<<"Please make a Choice: ";
-    std::cin>>choice;
-    if(choice == 2){
-      std::cout<<"Add Prize:1, Get Prize:2, Remove Prize:3, Make Your Choice: ";
-      std::cin>>choice2;
-      if(choice2 == 1){
-        std::cout<<"Enter Name of Prize: ";
-        std::cin>>yn;
-        p.setPrizeName(yn); //sets input as prize name
-        std::cout<<"Enter Value of Prize: ";
-        std::cin>>integer;
-        p.setPrizeValue(integer); //sets input as prize value
-        if(b.getPrizeCount() < b.getPrizeCapacity()){ //checks to make sure there is room inside the box
-          b.addPrize(Prize(yn, integer)); //adds prize
-          std::cout<<"You have added your prize."<<std::endl;
-        }
-        else
-          std::cout<<"Box has reached maximum capacity.. Not Added."<<std::endl;
-        }
-        std::cout<<"Continue y/n: "; //allows user to continue or quit
-        std::cin>>yn;
-        if(yn == "y" || yn == "Y")
-        {
-          //goes back to main menu, starting over
-        }
-        else
-        {
-          break;
-        }
-      }
-      else if(choice2 == 2)
-      {
-        std::cout<<"Enter the index integer of the prize to get: ";
-        std::cin>>integer;
-        b.getPrize(integer); //assigns selection to get prize
-        Prize at = b.getPrize(integer); //pointer set to current index
-        std::cout<<"Prize at index "<<integer<<": "<<std::endl; //displays index at current position
-        std::cout<<"Name: "<<at.getPrizeName()<<std::endl;
-        std::cout<<"Value: "<<at.getPrizeValue()<<std::endl;
-        std::cout<<"Box Number: "<<b.getBoxNumber()<<std::endl;
-        std::cout<<"Box Color: "<<b.getBoxColor()<<std::endl;
-        std::cout<<"Continue?(y/n): ";
-        std::cin>>yn;
-        if(yn == "y" || yn == "Y") //allows user to continure or quit
-        {
-          //goes back to main menu, starting over
-        }
-        else
-        {
-          break;
-        }
-      }
-      else if(choice2 == 3)
-      {
-        std::cout<<"Enter the index integer of the prize to remove(cannot remove index 0): ";
-        std::cin>>integer;
-        b.removePrize(integer); //removes prize
-        std::cout<<"Prize at index "<<integer<<" remove."<<std::endl;
-        std::cout<<"Continue?(y/n): ";
-        std::cin>>yn;
-        if(yn == "y" || yn == "Y")
-        {
-          //goes back to main menu, starting over
-        }
-        else
-        {
-          break;
-        }
-      }
+  while(decision != 6){ //runs unntil user inputs to exit
+    cout<<"*****Menu******"<<endl; //main menu  
+    cout<<"1:Make Your Box"<<endl;
+    cout<<"2:Add Prize, Get Prize, Remove Prize"<<endl;
+    cout<<"3:List Prize & Box Info"<<endl;
+    cout<<"4:Compare the Prizes"<<endl;
+    cout<<"5:Reset & start from the begining"<<endl;
+    cout<<"6:Quit the Program"<<endl;
+    cout<<"Please make a decision: ";
+    cin>>decision;
+    if(decision<1 | decision>6){
+    cout<<"Please make a decision: ";
+    cin>>decision;
     }
-    else if(choice == 1)
-    {
-      int capacity;
-      std::cout<<"-Edit Box-"<<std::endl;
-      std::cout<<"Enter Box Number: ";
-      std::cin>>integer;
-      b.setBoxNumber(integer); //mutator sets the  number of the box
-      std::cout<<"Enter Box Color: ";
-      std::cin>>yn;
-      b.setBoxColor(yn); //mutator sets the  color of the box
-      std::cout<<"Your Box has been constructed."<<std::endl;
-      std::cout<<"Continue?(y/n): ";
-      std::cin>>yn;
-      if(yn == "y" || yn == "Y")
-      {
-        //goes back to main menu, starting over
+    
+    if(decision == 2){
+      cout<<"Add Prize:1, Get Prize:2, Remove Prize:3, Make Your Decision: ";
+      cin>>decision2;
+      if(decision2 == 1){
+        cout<<"Enter Name of Prize: ";
+        cin>>yn;
+        prize.setPrizeName(yn); //sets input as prize name
+        cout<<"Enter Value of Prize: ";
+        cin>>intg;
+        prize.setPrizeValue(intg); //sets input as prize value
+        if(box.getPrizeCount() < box.getPrizeCapacity()){ //checks to make sure there is room inside our box
+          box.addPrize(Prize(yn, intg)); //adds prize
+          cout<<"You have added your prize."<<endl;
+        }
+        else
+          cout<<"Box has reached maximum volume.. Nothing Added."<<endl;
+        }
+        cout<<"Continue y/n: "; //allows user to continue or quit
+        cin>>yn;
+        if(yn == "y" || yn == "Y"){   //goes back to main menu, starting over
+        }
+        else{
+          break;
+        }
       }
-      else
-      {
+      else if(decision2 == 2){
+        cout<<"Enter the position number of the prize to retreive : ";
+        cin>>intg;
+        box.getPrize(intg); //assigns selection to get prize
+        Prize at = box.getPrize(intg); //pointer set to current position
+        cout<<"Prize at position "<<intg<<": "<<endl; //displays position at current position
+        cout<<"Name: "<<at.getPrizeName()<<endl;
+        cout<<"Value: "<<at.getPrizeValue()<<endl;
+        cout<<"Box Number: "<<box.getBoxNumber()<<endl;
+        cout<<"Box Color: "<<box.getBoxColor()<<endl;
+        cout<<"Continue? y/n: ";
+        cin>>yn;
+        if(yn == "y" || yn == "Y"){ //allows user to continure or quit
+        }
+        else{
+          break;
+        }
+      }
+      else if(decision2 == 3){
+        cout<<"Enter the position value of the prize to remove: ";
+        cin>>intg;
+        box.removePrize(intg); //removes prize
+        cout<<"Prize at position "<<intg<<" removed."<<endl;
+        cout<<"Continue? y/n: ";
+        cin>>yn;
+        if(yn == "y" || yn == "Y"){
+        }
+        else{
+          break;
+        }
+      }
+    
+    else if(decision == 1){
+      int volume;
+      cout<<"***Edit Box***"<<endl;
+      cout<<"Enter Box Number: ";
+      cin>>intg;
+      box.setBoxNumber(intg); //mutator sets the  number of the box
+      cout<<"Enter Box Color: ";
+      cin>>yn;
+      box.setBoxColor(yn); //mutator sets the  color of the box
+      cout<<"Your Box has been made."<<endl;
+      cout<<"Continue? y/n: ";
+      cin>>yn;
+      if(yn == "y" || yn == "Y"){
+      }
+      else{
         break;
       }
     }
-    else if(choice == 3)
-    { 
-      integer = 0;
-      b.getPrize(integer); //sets index to first
-      Prize at = b.getPrize(integer); //pointer assigned to index
+    else if(decision == 3){ 
+      intg = 0;
+      box.getPrize(intg); //sets position to one
+      Prize at = box.getPrize(intg); //pointer assigned to position
         
-      std::cout<<"Box Number: "<<b.getBoxNumber(); //displays box info
-      std::cout<<"  Box Color: "<<b.getBoxColor();
-      std::cout<<"  Prize Capacity: "<<b.getPrizeCapacity();
-      std::cout<<"  Prize Count: "<<b.getPrizeCount()<<std::endl;
+      cout<<"Box Number: "<<box.getBoxNumber(); //displays box info
+      cout<<"  Box Color: "<<box.getBoxColor();
+      cout<<"  Prize Volume: "<<box.getPrizeCapacity();
+      cout<<"  Prize Count: "<<box.getPrizeCount()<<endl;
 
-      while(integer < b.getPrizeCount()) //while index is less than prozecount
-      {
-        std::cout<<"Prize at index "<<integer<<": ";
-        std::cout<<"  Name: "<<at.getPrizeName(); //displays prize info at index
-        std::cout<<"  Value: "<<at.getPrizeValue()<<std::endl;
-        integer++; //increments index
-        b.getPrize(integer); //assigns index to next position
-        at = b.getPrize(integer); //assigns pointer to new index position
+      while(intg < box.getPrizeCount()){ //while position is less than our prizecount
+        cout<<"Prize at position "<<intg<<": ";
+        cout<<"  Name: "<<at.getPrizeName(); //displays prize info at position
+        cout<<"  Value: "<<at.getPrizeValue()<<endl;
+        intg++; //increments position
+        box.getPrize(intg); //assigns position to next position
+        at = box.getPrize(intg); //assigns pointer to new position position
       }
-      std::cout<<"Continue?(y/n): ";
-      std::cin>>yn;
-      if(yn == "y" || yn == "Y")
-      {
-        //goes back to main menu, starting over
+      cout<<"Continue? y/n: ";
+      cin>>yn;
+      if(yn == "y" || yn == "Y"){
       }
-      else
-      {
+      else{
         break;
       }
     }
-    else if(choice == 4)
-    { 
-      int first;
-      int second;
+    else if(decision == 4){ 
+      int one;
+      int two;
       
-      std::cout<<"-Compare Two Prizes-"<<std::endl;
-      std::cout<<"Enter the first Prize position to compare: ";
-      std::cin>>first;
-      std::cout<<"Enter the second Prize position for comparison: ";
-      std::cin>>second;
+      cout<<"-Compare Two Prizes-"<<endl;
+      cout<<"Enter the First Prize position to compare: ";
+      cin>>one;
+      cout<<"Enter the Second Prize position for comparison: ";
+      cin>>two;
       
-      b.getPrize(first);
-      Prize at = b.getPrize(first); //sets at, at first index selected
-      b.getPrize(second);
-      Prize at2 = b.getPrize(second); //sets at2, at second index selected
+      box.getPrize(one);
+      Prize at = box.getPrize(one); //sets at, at one position selected
+      box.getPrize(two);
+      Prize at2 = box.getPrize(two); //sets at2, at two position selected
       
-      if(at.getPrizeName() == at2.getPrizeName() && at.getPrizeValue() == at2.getPrizeValue()) //compares prize names and values
-      {
-        std::cout<<"These prizes are the exactly the same."<<std::endl;
+      if(at.getPrizeName() == at2.getPrizeName() && at.getPrizeValue() == at2.getPrizeValue()){ //compares prize names and values
+       cout<<"These prizes are the exactly the same."<<endl;
       }
-      else
-      {
-        std::cout<<"These prizes are completely different."<<std::endl;
+      else{
+        cout<<"These prizes are completely different."<<endl;
       }
-      std::cout<<"Continue? y/n: ";
-      std::cin>>yn;
-      if(yn == "y" || yn == "Y")
-      {
+      cout<<"Continue? y/n: ";
+      cin>>yn;
+      if(yn == "y" || yn == "Y"){
         //goes back to main menu, calling main stars us over
       }
       else
@@ -183,18 +167,15 @@ int main(){
         break;
       }
     }
-    else if(choice == 5)
-    {
+    else if(decision == 5){
       main();
     }
-    else if(choice == 6)
-    {
+    else if(decision == 6){
       break;
     }
-    else
-    {
-      std::cout<<"Please enter a choice beween 1-5: ";
-      std::cin>>integer;
+    else{
+      cout<<"Please enter a decision beween 1-5: ";
+      cin>>intg;
     }
   }
   return 0;
