@@ -84,8 +84,12 @@ DLNode node;
                 cout<<list<< endl;
          
           }
-        }
         
+        }
+          cout <<list.GetFront()<< " is the winner!" <<endl;
+          cout <<" Press any key followed by enter to exit."<< endl;
+          string pause;
+          cin >> pause;
           return 0;
               
    }

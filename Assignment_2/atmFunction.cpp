@@ -8,9 +8,8 @@
  
 #include "Assignment_2.h"
 
-int main() //driver for bnkAcct and subclasses
-{
-
+int main(){
+  
   bnkAcct bnkacct;  //for calling the classes and sub classes
   Checking che;
   Credit cre;
@@ -18,9 +17,7 @@ int main() //driver for bnkAcct and subclasses
   unsigned int tempInt; //main scope variables
   unsigned int decision= 0;
   unsigned int decision2 = 0;
-  using std::cout;
-  using std::cin;
-  using std::string;
+ 
   string temp;
 
 while(decision!= 3) //runs until user decides they want to exits

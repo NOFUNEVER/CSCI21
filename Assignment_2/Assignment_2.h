@@ -1,4 +1,4 @@
-gi/*
+/*
  * Name        : Assignment_2.h
  * Author      : Jason K Lamphere
  * Description : Assignment2 
@@ -10,17 +10,21 @@ gi/*
  * 
  */
  
+#ifndef bnkAcct_H
+#define bnkAcct_H 
+ 
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <string>
 using std::stringstream;
 using std::string;
+using std::cout;
+using std::cin;
 
-#ifndef bnkAcct_H
-#define bnkAcct_H
 
-class bnkAcct //base class
+
+class bnkAcct
 {
     public:
         bnkAcct(string f_name = "", string l_name = "", int pin = 0, double bal = 0); //constructor

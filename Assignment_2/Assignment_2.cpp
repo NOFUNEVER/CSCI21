@@ -6,7 +6,12 @@
  * https://github.com/nofunever/CSCI21 https://ide.c9.io/nofunever/csci21
  */
 
-#incl
+#include "Assignment_2.h"
+
+
+
+bnkAcct::bnkAcct(string f_name, string l_name, int pin, double bal){}
+
 
 int bnkAcct::getPin() //gets private pin value
 {
