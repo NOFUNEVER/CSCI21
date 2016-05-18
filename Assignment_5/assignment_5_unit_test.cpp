@@ -94,10 +94,8 @@ void UnitTest() {
   cout << "******BSTreeT<int>******" << endl;
 
   // Setup the BST
-  BSTreeT<string> tree1;
   BSTreeT<int> tree;
   BSTNodeT<int> *tree_pointer;
-  BSTNodeT<string> *tree_pointer1;
   string actual = "";
   Test(tree.GetSize() == 0, "Default Constructor / GetSize()");
 
@@ -130,7 +128,7 @@ void UnitTest() {
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
 
-  Test(tree.Insert(80) == 1, "Insert(80)");
+  Test(tree.Insert(80) == 1, "Insert(80)");    //changed test to 1. 2==True fails. I thought any value over 1 triggered true but not in the test
   Test(tree.GetSize() == 3, "GetSize()");
   actual = "20, 50, 80";
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
@@ -149,7 +147,7 @@ void UnitTest() {
   Test(tree_pointer == NULL, "Get(0)");
 
   Test(tree.Remove(80) == 1, "Remove(80)");
-  Test(tree.Insert(80) == 1, "Insert(80)");
+  Test(tree.Insert(80) == 1, "Insert(80)"); // Additional insert added here
   Test(tree.GetSize() == 3, "GetSize()");
   actual = "20, 50, 80";
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
@@ -158,7 +156,7 @@ void UnitTest() {
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
 
-  Test(tree.Remove(80) == 1, "Remove(80)");
+  Test(tree.Remove(80) == 1, "Remove(80)"); // since 80 is here since we reinserted we need it to check for true not false
   Test(tree.GetSize() == 2, "GetSize()");
   actual = "20, 50";
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
@@ -167,7 +165,7 @@ void UnitTest() {
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
 
-  Test(tree.Remove(80) == 0, "Remove(80)");
+  Test(tree.Remove(80) == 0, "Remove(80)");   //we need to check if remove is true or false. -1 does not trigger a false. only 0.
 
   tree.Clear();
   Test(tree.GetSize() == 0, "Clear() / GetSize()");
