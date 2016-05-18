@@ -25,58 +25,54 @@ using std::endl;
 using std::string;
 using std::stringstream;
 
-template <class T>
+template <class T>                                            //templated bst can accept any data type
   class BSTreeT {
     
     public:
     
-      BSTreeT(int value =0 )
+      BSTreeT(int value =0 )   //default contructor
       : root_(NULL),
       size_(value){}
 
       ~BSTreeT(){
       Clear();
-      }
+      }           // destructor
   
       void Clear(){   //clears node
        Clear(root_);
-      }
+      }         // clear function/for destructor
   
       int GetSize() const {
       return size_;
-      }
+      } //size accessor
 
       string ToStringForwards(){
       return ToStringForwards(root_);
-      } 
+      }    //prints leaves in order
 
       string ToStringBackwards(){
       return ToStringBackwards(root_);
-      }
+      }   //prints leaves backwards
 
       BSTNodeT<T>* Get(const T& value){
       Get(value, root_);
-      }
+      } //searches for a node with a value and returns said value if found.
 
       bool Insert(T value){ //insert function for a tree
       return Insert(value, root_);
-      }
+      }    //inserts a node into the properly sorted location
 
       bool Remove(T value){ //remove function for our tree
       return Remove(value, root_);
-      }
+      }   //removes a node and from our tree
 
       T FindMin(){       //finds the min value 
         if (root_ == NULL){
         return 0;
         }
         return FindMin(root_);
-      }
+      }     //finds our smallest node
 
-      unsigned int size() const {   //gets size without allowing it to change
-      return size_;
-      }
-      
       string InOrder(){  //lists tree nodes in order
       return InOrder(root_);
       }
@@ -93,42 +89,42 @@ template <class T>
 
     protected:
 
-      BSTNodeT<T>* root_;
-      unsigned int size_;
+      BSTNodeT<T>* root_;      //root node pointer
+      unsigned int size_;      //size varaible
   
       string InOrder(BSTNodeT<T>* root){  //lists tree inorder from root
         stringstream ss;
-        if (root != NULL){
-          ss << InOrder(root->GetLeft());
-          ss << root->GetContents() << " ";
-          ss << InOrder(root->GetRight());
+        if (root != NULL){                //if its not empty
+          ss << InOrder(root->GetLeft());  //check left
+          ss << root->GetContents() << " "; 
+          ss << InOrder(root->GetRight()); //check right
         }
-        return ss.str();
+        return ss.str(); //return ss
         }
     
       bool Insert(T value, BSTNodeT<T>*& root){  //our actual insert function
-        if (root == NULL){
+        if (root == NULL){                  //root is emtpy make node add size and return true
           root = new BSTNodeT<T>(value);
           size_++;
           return true;
         }
-        else if(value == root->GetContents()){
+        else if(value == root->GetContents()){                        //if its already in the bst return true and do nothing... bst by definition can't have repeat enteries.
         return true;
         }
-        else if (value < root->GetContents()){
+        else if (value < root->GetContents()){                                    //if its smaller go left
         return Insert(value, root->GetLeft());
         } else if (value > root->GetContents()){
-        return Insert(value, root->GetRight());
+        return Insert(value, root->GetRight());                                 //larger go right
         }
         return false;
-        }
+        }    
       
       T FindMin(BSTNodeT<T>* root) const {  //find min wihtout modifying
         if (root->GetLeft() != NULL){
       return FindMin(root->GetLeft());
     }
           return root->GetContents();
-        }
+        }                               //finds our min value
     
       bool Remove(const T& value, BSTNodeT<T>*& root){  //our actual remove function
         if (root == NULL){
@@ -158,9 +154,9 @@ template <class T>
           } else {
             return Remove(value, root->GetLeft());
             }
-     }
+     }                         //removal function
   
-      BSTNodeT<T>* Get(const T& value, BSTNodeT<T>*& root){
+      BSTNodeT<T>* Get(const T& value, BSTNodeT<T>*& root){                                    //looks for a ndoe with a value and then returns the value of the node to confirm for testing
         if(value == root->GetContents()||  root== NULL ){
           return root;
         } else if(root->GetLeft()!=NULL && value < root->GetContents()  ){
@@ -189,7 +185,7 @@ template <class T>
         } else{    
           return "";
           }
-      }
+      }                                  //reads our bst pre order
   
       string ToStringBackwards(BSTNodeT<T>*& root){
         stringstream ss;
@@ -209,7 +205,7 @@ template <class T>
         } else{    
           return "";
           }
-      }
+      }                                 //post order
     
       void Clear(BSTNodeT<T>*& root){  //full clear function
         if (root != NULL){
@@ -221,7 +217,7 @@ template <class T>
         } else if(root_== NULL&&size_>0){
             size_--;
           }  
-        }
+        }                                                 //clears the tree
     
 };
 

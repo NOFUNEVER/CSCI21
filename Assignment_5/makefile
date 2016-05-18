@@ -1,9 +1,9 @@
-lab3test: driver.o
-	g++ -Wall -g -o assignment5  driver.o
+lab3test: main.o
+	g++ -Wall -g -o assignment5  main.o
 
 
 
-Driver: driver.cpp
+Driver: main.cpp
 	g++ -Wall -g -c 
 
 clean:
