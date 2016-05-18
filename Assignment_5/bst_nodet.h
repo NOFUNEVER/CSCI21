@@ -43,6 +43,7 @@ void SetLeft(BSTNodeT<T>* SetLeft) { //sets child contents
 }
 
 void SetRight(BSTNodeT<T>* SetRight) {
+  
   right_child_ = SetRight;
 }
 

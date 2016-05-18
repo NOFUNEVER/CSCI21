@@ -1,13 +1,11 @@
-all:	assignment_5_unit_test.o
-	g++ -Wall -g -o assignment5 assignment_5_unit_test.o
-	
-	
-
-	
-assignment5:	assignment_5_unit_test.cpp
-	g++ -Wall -g -c assignment_5_unit_test.o
+lab3test: driver.o
+	g++ -Wall -g -o assignment5  driver.o
 
 
-clean: 
-	rm *.o
+
+Driver: driver.cpp
+	g++ -Wall -g -c 
+
+clean:
+	rm *.o assignment5
 	

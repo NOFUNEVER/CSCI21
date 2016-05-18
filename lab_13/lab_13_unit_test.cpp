@@ -64,7 +64,7 @@ TEST_CASE ("Box<string> class functionality", "[Box]") {
 	ss << stringBox;
 	CHECK(ss.str() == "goodbye");
 }
-/*
+
 TEST_CASE("Sum()") {
   SECTION("Integers. Array: { 3, 5, 7, 9, 11 }") {
     int int_values[] = { 3, 5, 7, 9, 11 };
@@ -87,4 +87,3 @@ TEST_CASE("Sum()") {
     CHECK(Sum(string_values, 0) == "");
   }
 }
-*/

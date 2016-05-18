@@ -31,7 +31,7 @@ int  decToBin(int num);
  */
 int binToDec(int num);
 
-bool schoolCost(int year, bool cost);
+double schoolCost(int year, double cost =12300, double interest =1.10998 );
 
 
 

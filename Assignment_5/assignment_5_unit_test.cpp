@@ -8,10 +8,10 @@
 #include <string>
 #include <sstream>
 #include "bs_treet.h"
-//using std::cout;
-//using std::endl;
-//using std::string;
-//using std::stringstream;
+using std::cout;
+using std::endl;
+using std::string;
+using std::stringstream;
 
 // For testing (DO NOT ALTER)
 void Test(bool test, string more_info = "", string yours = "!", string actual =
@@ -94,14 +94,15 @@ void UnitTest() {
   cout << "******BSTreeT<int>******" << endl;
 
   // Setup the BST
+  BSTreeT<string> tree1;
   BSTreeT<int> tree;
   BSTNodeT<int> *tree_pointer;
+  BSTNodeT<string> *tree_pointer1;
   string actual = "";
   Test(tree.GetSize() == 0, "Default Constructor / GetSize()");
 
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
        tree.ToStringForwards(), actual);
-       /*
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
   Test(tree.Insert(50) == 1, "Insert(50)");
@@ -129,7 +130,7 @@ void UnitTest() {
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
 
-  Test(tree.Insert(80) == 2, "Insert(80)");
+  Test(tree.Insert(80) == 1, "Insert(80)");
   Test(tree.GetSize() == 3, "GetSize()");
   actual = "20, 50, 80";
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
@@ -148,6 +149,7 @@ void UnitTest() {
   Test(tree_pointer == NULL, "Get(0)");
 
   Test(tree.Remove(80) == 1, "Remove(80)");
+  Test(tree.Insert(80) == 1, "Insert(80)");
   Test(tree.GetSize() == 3, "GetSize()");
   actual = "20, 50, 80";
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
@@ -156,7 +158,7 @@ void UnitTest() {
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
 
-  Test(tree.Remove(80) == 0, "Remove(80)");
+  Test(tree.Remove(80) == 1, "Remove(80)");
   Test(tree.GetSize() == 2, "GetSize()");
   actual = "20, 50";
   Test(tree.ToStringForwards() == actual, "ToStringForwards()",
@@ -165,7 +167,7 @@ void UnitTest() {
   Test(tree.ToStringBackwards() == actual, "ToStringBackwards()",
        tree.ToStringBackwards(), actual);
 
-  Test(tree.Remove(80) == -1, "Remove(80)");
+  Test(tree.Remove(80) == 0, "Remove(80)");
 
   tree.Clear();
   Test(tree.GetSize() == 0, "Clear() / GetSize()");
@@ -178,7 +180,7 @@ void UnitTest() {
   cout << string(temp.length() - 1, '-') << endl;
   cout << "Unit Test Complete!\n" << "Passed: " << ut_passed << " / "
        << ut_total << endl << "Failed: " << ut_failed << " / " << ut_total
-       << endl << endl;*/
+       << endl << endl;
 }
 
 // For testing (DO NOT ALTER)

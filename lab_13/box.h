@@ -42,16 +42,20 @@ friend ostream& operator <<(ostream& output, const Box<T> &newContents){//output
     return output;
 }
 
-T Sum(T values, unsigned int size){// sums values in array
-    T sum = "zero";
+
+
+protected:
+  T contents; //protected templated variables
+};
+
+template<class T>
+T Sum(T values[], unsigned int size){  // sums  up thevalues in array
+    T sum = T();
     for( int i = 0; i < size; i++){
         sum+=values[i];
     }
  return sum;   
  }
 
-protected:
-  T contents; //protected templated variable
-};
 
 #endif
