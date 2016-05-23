@@ -8,7 +8,7 @@
 #include "Box.h"
 #include "Prize.h"
 using std::cout;
-using cin;
+using std::cin;
 using std:endl;
 
 

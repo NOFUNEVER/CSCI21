@@ -11,3 +11,5 @@ assignment2:	dl_node.cpp
 main:	main.cpp
 	g++ -Wall -g -c main.cpp
 
+clean:
+	rm *.o assignment4

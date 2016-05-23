@@ -8,3 +8,5 @@ assignment3:	Prize.cpp Box.cpp assign_3_unit_test.cpp
 
 
 
+clean:
+	rm *.o assign3test

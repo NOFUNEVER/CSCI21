@@ -13,6 +13,7 @@
 #include <fstream>
 #include <sstream>
 #include <cctype>
+#include <limits>
 using namespace std;
 
 
@@ -87,12 +88,14 @@ DLNode node;
         
         }
           cout <<list.GetFront()<< " is the winner!" <<endl;
-          cout <<" Press any key followed by enter to exit."<< endl;
-          string pause;
-          cin >> pause;
-          return 0;
+         
+  std::cout << "Press ENTER to continue...";
+  std::cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
+
+  return 0;
+  }
               
-   }
+   
         
       
   
