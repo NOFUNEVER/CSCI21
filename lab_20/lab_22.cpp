@@ -1,6 +1,6 @@
 /*
  * Name        : lab_22.cpp
- * Author      : Xavier Winsor
+ * Author      : Jason Lamphere
  * Description : Recursive Functions
  */
 
@@ -9,7 +9,7 @@
 // CODE FUNCTION DEFINITIONS HERE
 
 unsigned int Factorial(unsigned int value){
-    int end = value;
+   
     if (value >= 1){
         value = value * Factorial(value-1);
         

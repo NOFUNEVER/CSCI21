@@ -1,6 +1,6 @@
 /*
  * Name        : lab_recursion.cpp
- * Author      : YOUR NAME
+ * Author      : Jason Lamphere
  * Description : Recursive Functions
  */
 
